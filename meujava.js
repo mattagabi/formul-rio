@@ -1,5 +1,4 @@
 function submitForm() {
-    // Obtém os valores dos campos
     var nome = document.getElementById('nome').value;
     var idade = document.getElementById('idade').value;
     var peso = document.getElementById('peso').value;
@@ -11,17 +10,15 @@ function submitForm() {
         atividades.push(checkbox.value);
     });
 
-    // Calcula o IMC
     var imc = calcularIMC(peso, altura);
 
-    // Verifica as condições para alterar as cores e exibir a mensagem de saúde
-    var corDeFundo = '#f8f9fa';  // Cor padrão
-    var corTexto = '#495057';    // Cor padrão
+    var corDeFundo = '#f8f9fa';  
+    var corTexto = '#495057';   
     var mensagemSaude = '';
 
     if (nome.toLowerCase() === "maria" && idade > 10 && atividades.length === 5) {
-        corDeFundo = '#ffcccb';  // Rosa
-        corTexto = '#721c24';    // Vermelho escuro
+        corDeFundo = '#ffcccb';  
+        corTexto = '#721c24';   
     }
 
     if (imc < 18.5) {
@@ -34,11 +31,9 @@ function submitForm() {
         mensagemSaude = 'Obesidade';
     }
 
-    // Aplica as cores ao estilo da página
     document.body.style.backgroundColor = corDeFundo;
     document.body.style.color = corTexto;
 
-    // Exibe o resultado das seleções e a mensagem de saúde
     var resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = `<h4>Seleções do Usuário:</h4>
                               <p><strong>Nome:</strong> ${nome}</p>
@@ -51,6 +46,6 @@ function submitForm() {
 }
 
 function calcularIMC(peso, altura) {
-    altura = altura / 100;  // Convertendo altura para metros
+    altura = altura / 100; 
     return peso / (altura * altura);
 }
